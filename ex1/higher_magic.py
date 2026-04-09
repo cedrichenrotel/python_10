@@ -8,7 +8,7 @@
 #  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/04/08 18:08:44 by cehenrot        #+#    #+#               #
-#  Updated: 2026/04/09 14:44:25 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/04/09 17:29:50 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -28,7 +28,7 @@ def air_spell(target: str, power: int) -> str:
 
 
 def spell_combiner(spell1: Callable, spell2: Callable) -> Callable:
-    def spell(target: str, power: int) -> str:
+    def spell(target: str, power: int) -> tuple:
         rst1 = spell1(target, power)
         rst2 = spell2(target, power)
         return (rst1, rst2)
@@ -36,7 +36,7 @@ def spell_combiner(spell1: Callable, spell2: Callable) -> Callable:
 
 
 def power_amplifier(base_spell: Callable, multiplier: int) -> Callable:
-    def amplifier_power(target: str, power: int) -> str:
+    def amplifier_power(target: str, power: int) -> tuple:
         rst = base_spell(target, power * multiplier)
         return rst
     return amplifier_power
