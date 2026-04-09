@@ -8,7 +8,7 @@
 #  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/04/08 10:58:51 by cehenrot        #+#    #+#               #
-#  Updated: 2026/04/08 18:02:47 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/04/09 09:43:05 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -57,13 +57,14 @@ def main() -> None:
     mages_stat = mage_stats(mages)
 
     print("Testing artifact sorter...")
-    print(artifact_trier)
+    for a in artifact_trier:
+        print(str(a).strip("{}").replace("'", ""))
     print("\ntesting mage filter...")
-    print(filter_mage)
+    print(str(filter_mage).replace("'", '').strip("{['']}"))
     print("\ntesting mage statistics...")
-    print(mages_stat)
+    print(str(mages_stat).replace("''{'", '').strip("{['']}"))
     print("\nTesting spell transformer...")
-    print(spell_trans)
+    print(str(spell_trans).replace("', '", ' ').strip("['']"))
 
 
 if __name__ == "__main__":
