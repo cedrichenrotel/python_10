@@ -6,7 +6,7 @@
 #  By: cehenrot <cehenrot@student.42lyon.fr>     +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/04/09 17:34:29 by cehenrot        #+#    #+#               #
-#  Updated: 2026/04/10 16:29:53 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/04/10 16:40:46 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -89,9 +89,9 @@ def main() -> None:
     print("Testing memory vault...")
     vault = memory_vault()
     vault['Store']('secret', 42)
-    print(vault['Store']('secret', 42))
-    recall = vault['Recall']('secret')
-    print(f"Recall: {recall}")
+    print("Store 'secret' = 42")
+    print(f"Recall 'secret': {vault['Recall']('secret')}")
+    print(f"Recall 'unknown': {vault['Recall']('unknown')}")
 
 
 if __name__ == "__main__":
