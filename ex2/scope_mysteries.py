@@ -3,10 +3,10 @@
 #                                                      :::      ::::::::    #
 #  scope_mysteries.py                                :+:      :+:    :+:    #
 #                                                  +:+ +:+         +:+      #
-#  By: cehenrot <cehenrot@student.42lyon.fr>     +#+  +:+       +#+         #
+#  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/04/09 17:34:29 by cehenrot        #+#    #+#               #
-#  Updated: 2026/04/10 16:40:46 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/04/13 14:03:49 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -34,11 +34,7 @@ def spell_accumulator(initial_power: int) -> Callable:
 
 
 def enchantment_factory(enchantment_type: str) -> Callable:
-    enchantment = enchantment_type
-
-    def factory_enchantment(item: str) -> str:
-        return enchantment + " " + item
-    return factory_enchantment
+    return lambda item: enchantment_type + " " + item
 
 
 def memory_vault() -> dict[str, Callable]:
@@ -56,11 +52,6 @@ def memory_vault() -> dict[str, Callable]:
 
 
 def main() -> None:
-    # Memory Depths Test Data
-    # power_additions = [5, 18, 14, 18, 18]
-    # enchantment_types = ['Windy', 'Radiant', 'Earthen']
-    # items_to_enchant = ['Shield', 'Sword', 'Wand', 'Armor']
-
     counter1 = mage_counter()
     counter2 = mage_counter()
     print("Testing mage counter...")
