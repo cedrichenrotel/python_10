@@ -3,14 +3,14 @@
 #                                                      :::      ::::::::    #
 #  scope_mysteries.py                                :+:      :+:    :+:    #
 #                                                  +:+ +:+         +:+      #
-#  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
+#  By: cehenrot <cehenrot@student.42lyon.fr>     +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/04/09 17:34:29 by cehenrot        #+#    #+#               #
-#  Updated: 2026/04/14 15:26:48 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/04/14 18:38:27 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
-from _collections_abc import Callable
+from collections.abc import Callable
 
 
 def mage_counter() -> Callable:

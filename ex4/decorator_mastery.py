@@ -3,10 +3,10 @@
 #                                                      :::      ::::::::    #
 #  decorator_mastery.py                              :+:      :+:    :+:    #
 #                                                  +:+ +:+         +:+      #
-#  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
+#  By: cehenrot <cehenrot@student.42lyon.fr>     +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/04/13 16:58:42 by cehenrot        #+#    #+#               #
-#  Updated: 2026/04/14 15:53:40 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/04/14 19:07:44 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -45,7 +45,12 @@ def power_validator(min_power: int) -> Callable:
         @wraps(func)
         def wrapper(*args, **kwargs) -> Callable:
 
-            if kwargs.get('power') >= min_power:
+            if kwargs.get('power') is not None:
+                power = kwargs.get('power')
+            else:
+                power = args[2]
+
+            if power >= min_power:
                 return func(*args, **kwargs)
             else:
                 return ("Insufficient power for this spell")
