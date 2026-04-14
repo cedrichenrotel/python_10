@@ -6,7 +6,7 @@
 #  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/04/13 16:58:42 by cehenrot        #+#    #+#               #
-#  Updated: 2026/04/14 13:07:25 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/04/14 15:53:40 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -14,7 +14,7 @@ import sys
 try:
     from collections.abc import Callable
     from functools import wraps
-    from time import time
+    from time import time, sleep
 except ImportError as e:
     print(f"[ERROR] : {e}")
     sys.exit(1)
@@ -96,6 +96,7 @@ def main() -> None:
 
     @spell_timer
     def fire_spell(target: str, power: int) -> str:
+        sleep(1)
         return f"{target} burns with {power} power"
     fire_spell('Dragon', power=5)
 
@@ -105,6 +106,7 @@ def main() -> None:
     def fire_spell(target: str, power: int) -> None:
         return f"{target} burns with {power} power"
     print(fire_spell('goblin', power=5))
+    print(fire_spell('goblin', power=25))
 
     print("\nTesting retrying spell...")
 

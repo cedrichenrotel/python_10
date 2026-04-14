@@ -6,7 +6,7 @@
 #  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/04/13 07:43:25 by cehenrot        #+#    #+#               #
-#  Updated: 2026/04/13 15:34:42 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/04/14 15:38:48 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -48,7 +48,7 @@ def partial_enchanter(base_enchantment: Callable) -> dict[str, Callable]:
     }
 
 
-@lru_cache
+@lru_cache(None)
 def memoized_fibonacci(n: int) -> int:
     if not isinstance(n, int):
         raise TypeError(f"fib({n}) is not int")
