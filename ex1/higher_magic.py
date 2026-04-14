@@ -5,10 +5,10 @@
 #                                                      :::      ::::::::    #
 #  higher_magic.py                                   :+:      :+:    :+:    #
 #                                                  +:+ +:+         +:+      #
-#  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
+#  By: cehenrot <cehenrot@student.42lyon.fr>     +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/04/08 18:08:44 by cehenrot        #+#    #+#               #
-#  Updated: 2026/04/14 15:18:55 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/04/14 19:21:48 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -76,6 +76,7 @@ def main() -> None:
     print("\nTesting conditional caster...")
     conditional = conditional_caster(is_powerful, fire_spell)
     print(conditional('Dragon', 50))
+    print(conditional('goblin', 40))
 
     print("\nTesting spell sequence...")
     lst_spell = [

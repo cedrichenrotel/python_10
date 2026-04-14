@@ -6,7 +6,7 @@
 #  By: cehenrot <cehenrot@student.42lyon.fr>     +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/04/09 17:34:29 by cehenrot        #+#    #+#               #
-#  Updated: 2026/04/14 18:38:27 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/04/14 19:23:58 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -56,9 +56,9 @@ def main() -> None:
     counter2 = mage_counter()
     print("Testing mage counter...")
     for c in range(3):
-        print(f"counter1 call {c + 1}:{counter1()}")
+        print(f"counter_a call {c + 1}:{counter1()}")
         if c < 1:
-            print(f"counter2 call {c + 1}:{counter2()}")
+            print(f"counter_b call {c + 1}:{counter2()}")
 
     print("\nTesting spell accumulator..")
     initial_power = 100
