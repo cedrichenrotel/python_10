@@ -6,7 +6,7 @@
 #  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/04/09 17:34:29 by cehenrot        #+#    #+#               #
-#  Updated: 2026/04/13 14:03:49 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/04/14 15:26:48 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -77,7 +77,7 @@ def main() -> None:
     ]
     list(map(print, enchantment))
 
-    print("Testing memory vault...")
+    print("\nTesting memory vault...")
     vault = memory_vault()
     vault['Store']('secret', 42)
     print("Store 'secret' = 42")
