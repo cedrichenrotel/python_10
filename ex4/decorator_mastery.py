@@ -3,10 +3,10 @@
 #                                                      :::      ::::::::    #
 #  decorator_mastery.py                              :+:      :+:    :+:    #
 #                                                  +:+ +:+         +:+      #
-#  By: cehenrot <cehenrot@student.42lyon.fr>     +#+  +:+       +#+         #
+#  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/04/13 16:58:42 by cehenrot        #+#    #+#               #
-#  Updated: 2026/04/14 19:07:44 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/04/15 11:54:42 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -30,7 +30,7 @@ def spell_timer(func: Callable) -> Callable:
         rst = func(*args, **kwargs)
         end_time = time()
         estimated_time = end_time - start_time
-        print(f"Spell completed in {estimated_time:.3f} seconds")
+        print(f"Spell completed in {estimated_time:.6f} seconds")
         print(f"Result: {rst}")
 
         return rst
@@ -48,7 +48,7 @@ def power_validator(min_power: int) -> Callable:
             if kwargs.get('power') is not None:
                 power = kwargs.get('power')
             else:
-                power = args[2]
+                return ("argument 'power' not found")
 
             if power >= min_power:
                 return func(*args, **kwargs)

@@ -6,12 +6,13 @@
 #  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/04/13 07:43:25 by cehenrot        #+#    #+#               #
-#  Updated: 2026/04/14 15:38:48 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/04/15 11:46:56 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
 import sys
 try:
+    from time import time, sleep
     from functools import reduce, partial, lru_cache, singledispatch
     from operator import add, mul
     from collections.abc import Callable
@@ -48,13 +49,21 @@ def partial_enchanter(base_enchantment: Callable) -> dict[str, Callable]:
     }
 
 
-@lru_cache(None)
+@lru_cache
 def memoized_fibonacci(n: int) -> int:
     if not isinstance(n, int):
         raise TypeError(f"fib({n}) is not int")
     if n == 0 or n == 1:
         return n
     return memoized_fibonacci(n-1) + memoized_fibonacci(n-2)
+
+
+def memoized_fibonacci2(n: int) -> int:
+    if not isinstance(n, int):
+        raise TypeError(f"fib({n}) is not int")
+    if n == 0 or n == 1:
+        return n
+    return memoized_fibonacci2(n-1) + memoized_fibonacci2(n-2)
 
 
 def spell_dispatcher() -> Callable[[Any], str]:
@@ -100,9 +109,26 @@ def main() -> None:
 
     print("\nTesting memoized fibonacci...")
     try:
-        fibonacci_tests = [13, 16, 15]
+        fibonacci_tests = [13, 16]
         for test in fibonacci_tests:
+            start = time()
             print(f"fib({test}): {memoized_fibonacci(test)}")
+            end = time()
+            print(f"Avec lru_cache: {end - start:.6f}")
+            sleep(1)
+    except TypeError as e:
+        print(f"[ERROR] {e}")
+
+    print()
+
+    try:
+        fibonacci_tests = [13, 16]
+        for test in fibonacci_tests:
+            start = time()
+            print(f"fib({test}): {memoized_fibonacci2(test)}")
+            end = time()
+            print(f"Sans lru_cache: {end - start:.6f}")
+            sleep(1)
     except TypeError as e:
         print(f"[ERROR] {e}")
 

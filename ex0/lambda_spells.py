@@ -8,7 +8,7 @@
 #  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/04/08 10:58:51 by cehenrot        #+#    #+#               #
-#  Updated: 2026/04/14 15:06:29 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/04/15 09:52:54 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -62,7 +62,7 @@ def main() -> None:
     print("\ntesting mage filter...")
     print(str(filter_mage).replace("'", '').strip("{['']}"))
     print("\ntesting mage statistics...")
-    print(str(mages_stat).replace("''{'", '').strip("{['']}"))
+    print(str(mages_stat).replace("''{'", '').strip("{[]}"))
     print("\nTesting spell transformer...")
     print(str(spell_trans).replace("', '", ' ').strip("['']"))
 

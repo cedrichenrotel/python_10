@@ -5,10 +5,10 @@
 #                                                      :::      ::::::::    #
 #  higher_magic.py                                   :+:      :+:    :+:    #
 #                                                  +:+ +:+         +:+      #
-#  By: cehenrot <cehenrot@student.42lyon.fr>     +#+  +:+       +#+         #
+#  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/04/08 18:08:44 by cehenrot        #+#    #+#               #
-#  Updated: 2026/04/14 19:21:48 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/04/15 12:08:12 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -16,15 +16,15 @@ from collections.abc import Callable
 
 
 def fire_spell(target: str, power: int) -> str:
-    return f"{target} burns with {power} power"
+    return f"target: {target} | fire_spell: power {power}"
 
 
 def ice_spell(target: str, power: int) -> str:
-    return f"{target} is frozen with {power} power"
+    return f"target: {target} | ice_spell: power {power}"
 
 
 def air_spell(target: str, power: int) -> str:
-    return f"{target} tornado with a power of {power} power"
+    return f"target: {target} | air_spell: power {power}"
 
 
 def spell_combiner(spell1: Callable, spell2: Callable) -> Callable:
@@ -42,7 +42,7 @@ def power_amplifier(base_spell: Callable, multiplier: int) -> Callable:
     return amplifier_power
 
 
-def is_powerful(target: str, power: int) -> bool:
+def is_powerful(_: str, power: int) -> bool:
     return power >= 50
 
 
@@ -75,8 +75,8 @@ def main() -> None:
 
     print("\nTesting conditional caster...")
     conditional = conditional_caster(is_powerful, fire_spell)
-    print(conditional('Dragon', 50))
-    print(conditional('goblin', 40))
+    print(conditional('dragon', 50))
+    print(conditional('dragon', 40))
 
     print("\nTesting spell sequence...")
     lst_spell = [
@@ -85,7 +85,7 @@ def main() -> None:
         air_spell
     ]
     sequence = spell_sequence(lst_spell)
-    rst = sequence('Dragon', 50)
+    rst = sequence('fire', 50)
     print(str(rst).strip("['']").replace("', '", "\n"))
 
 

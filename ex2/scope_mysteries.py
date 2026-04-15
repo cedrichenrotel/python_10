@@ -3,10 +3,10 @@
 #                                                      :::      ::::::::    #
 #  scope_mysteries.py                                :+:      :+:    :+:    #
 #                                                  +:+ +:+         +:+      #
-#  By: cehenrot <cehenrot@student.42lyon.fr>     +#+  +:+       +#+         #
+#  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/04/09 17:34:29 by cehenrot        #+#    #+#               #
-#  Updated: 2026/04/14 19:23:58 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/04/15 10:44:08 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -55,9 +55,9 @@ def main() -> None:
     counter1 = mage_counter()
     counter2 = mage_counter()
     print("Testing mage counter...")
-    for c in range(3):
+    for c in range(8):
         print(f"counter_a call {c + 1}:{counter1()}")
-        if c < 1:
+        if c % 2 == 0:
             print(f"counter_b call {c + 1}:{counter2()}")
 
     print("\nTesting spell accumulator..")
@@ -75,14 +75,17 @@ def main() -> None:
         factory[0]('Sword'),
         factory[1]('Shield')
     ]
-    list(map(print, enchantment))
+    print(enchantment)
 
     print("\nTesting memory vault...")
     vault = memory_vault()
     vault['Store']('secret', 42)
     print("Store 'secret' = 42")
-    print(f"Recall 'secret': {vault['Recall']('secret')}")
-    print(f"Recall 'unknown': {vault['Recall']('unknown')}")
+    try:
+        print(f"Recall 'secret': {vault.get('Recall')('secret')}")
+        print(f"Recall 'unknown': {vault.get('ReCall')('unknown')}")
+    except TypeError as e:
+        print(f"[ERROR] {e}")
 
 
 if __name__ == "__main__":
